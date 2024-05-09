@@ -1,16 +1,3 @@
-# individual
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Darle flutter run, para Windows.
+La aplicación desplegará tres opciones, "desayuno", "comida" y "cena"
+El usuario le pica a uno y la aplicación da como salida un food item correspondiente a la hora de comida seleccionada
