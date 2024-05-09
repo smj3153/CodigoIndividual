@@ -24,7 +24,17 @@ class _ElegirPlatilloPageState extends State<ElegirPlatilloPage> {
   final List<String> comidaPlatillos = ['Sandwich', 'Ensalada', 'Sopa', 'Pizza', 'Tacos', 'Torta ahogada'];
   final List<String> cenaPlatillos = ['Filete', 'Pollo', 'Pasta', 'Pescado', 'Pavo', 'Hamburguesa'];
 
+  Map<String, String> desayunoImages = {
+    'Hotcakes': 'assets/hotcakes.png',
+    'Avena': 'assets/avena.png',
+    'Huevos': 'assets/huevos.png',
+    'Smoothie': 'assets/smoothie.png',
+    'Chilaquiles': 'assets/chilaquiles.png',
+    'Omelette': 'assets/omelette.png',
+  };
+
   String platilloSeleccionado = '';
+  String imagePath = '';
 
   void elegirPlatilloRandom(String platilloTipo) {
     List<String> items = [];
@@ -43,6 +53,7 @@ class _ElegirPlatilloPageState extends State<ElegirPlatilloPage> {
       final random = Random();
       setState(() {
         platilloSeleccionado = items[random.nextInt(items.length)];
+        imagePath = platilloTipo == 'Desayuno' ? desayunoImages[platilloSeleccionado] ?? '' : '';
       });
     }
   }
@@ -76,9 +87,17 @@ class _ElegirPlatilloPageState extends State<ElegirPlatilloPage> {
             ),
             SizedBox(height: 20.0),
             platilloSeleccionado.isNotEmpty
-                ? Text(
-                    'Disfruta tu(s) $platilloSeleccionado!',
-                    style: TextStyle(fontSize: 24.0),
+                ? Column(
+                    children: [
+                      Text(
+                        'Disfruta tu(s) $platilloSeleccionado!',
+                        style: TextStyle(fontSize: 24.0),
+                      ),
+                      SizedBox(height: 20.0),
+                      imagePath.isNotEmpty
+                          ? Image.asset(imagePath)
+                          : Container(),
+                    ],
                   )
                 : Container(),
           ],
